@@ -28,6 +28,10 @@ public class Population {
 		this.population = population;
 	}
 
+	public Individual returnIndividual(int i, Individual i1) {
+		return population[i] = i1;
+	}
+
 	public double getPopulationFitness() {
 		return populationFitness;
 	}
