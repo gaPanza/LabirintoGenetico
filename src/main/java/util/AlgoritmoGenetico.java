@@ -4,14 +4,15 @@ import util.Individual;
 import util.Population;
 
 public class AlgoritmoGenetico {
+	
 	public Integer populationSize;
-	private Double mutationRate;
+	private Double taxaMutacao;
 	private Double crossRate;
 	private Integer keepCount;
 
-	public AlgoritmoGenetico(Integer populationSize, Double mutationRate, Double rate, Integer keepCount) {
+	public AlgoritmoGenetico(Integer populationSize, Double taxaMutacao, Double rate, Integer keepCount) {
 		this.populationSize = populationSize;
-		this.mutationRate = mutationRate;
+		this.taxaMutacao = taxaMutacao;
 		this.crossRate = rate;
 		this.keepCount = keepCount;
 	}
@@ -112,7 +113,7 @@ public class AlgoritmoGenetico {
 
 			for (int i = 0; i < individual.getCromossomo().length; i++) {
 				if (populationIndex > this.keepCount) {
-					if (this.mutationRate > Math.random()) {
+					if (this.taxaMutacao > Math.random()) {
 						int newGene = 1;
 						if (individual.getGene(i) == 1) {
 							newGene = 0;

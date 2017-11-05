@@ -5,6 +5,7 @@ import java.util.Arrays;
 import util.Individual;
 
 public class Population {
+	
 	private Individual population[];
 	private double populationFitness = 0;
 

@@ -1,6 +1,7 @@
 package util;
 
 public class Individual {
+	
 	private Integer[] cromossomo;
 	private Double aderencia = 0.0;
 
