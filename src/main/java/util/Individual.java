@@ -3,7 +3,7 @@ package util;
 public class Individual {
 	
 	private Integer[] cromossomo;
-	private Double aderencia = 0.0;
+	private double aderencia = -1;
 
 	public Individual(Integer[] cromossomo) {
 		this.cromossomo = cromossomo;

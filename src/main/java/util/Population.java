@@ -1,13 +1,14 @@
 package util;
 
 import java.util.Arrays;
-
-import util.Individual;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class Population {
 	
 	private Individual population[];
-	private double populationFitness = 0;
+	private double populationFitness = -1;
 
 	public Population(int Size) {
 		this.population = new Individual[Size];
@@ -42,9 +43,34 @@ public class Population {
 	}
 
 	public Individual getMelhorAvaliado(int condicao) {
-		Arrays.sort(this.population, (Individual i1, Individual i2) -> i1.getAderencia().compareTo(i2.getAderencia()));
+		Arrays.sort(this.population, new Comparator<Individual>() {
+			@Override
+			public int compare(Individual o1, Individual o2) {
+				if (o1.getAderencia() > o2.getAderencia()) {
+					return -1;
+				} else if (o1.getAderencia() < o2.getAderencia()) {
+					return 1;
+				}
+				return 0;
+			}
+		});
 
 		return this.population[condicao];
 	}
-
+	
+	public Individual getBestAvaliado(List<Individual> x) {
+		Collections.sort(x, new Comparator<Individual>() {
+			@Override
+			public int compare(Individual o1, Individual o2) {
+				if (o1.getAderencia() > o2.getAderencia()) {
+					return -1;
+				} else if (o1.getAderencia() < o2.getAderencia()) {
+					return 1;
+				}
+				return 0;
+			}
+		});
+	
+		return x.get(0);
+	}
 }
